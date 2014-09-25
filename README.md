@@ -16,6 +16,27 @@ For each covered file, a chain of links is built allowing you to click through f
 
 The HTML report format has been desiged to be accessible and conformant with WCAG 2 Level AA.
 
+##Excluding code from coverage reporting
+
+To exclude a single line from the coverage report, you can append a comment with the content of "cover:false" to the end of the line.
+
+```
+var uncovered = "this line will not be covered"; // cover:false
+```
+
+If you would like to exclude a block of code from coverage reporting, then wrap the block in a pair of comments to turn coverage off and then back on. Note that the start and end comments should be at the same indent level or the outcome will not be what you expect. To turn off the coverage, put the text "#JSCOVERAGE_IF" into a comment. To turn it back on, use a comment with one of the following texts "#JSCOVERAGE_IF 0", or "#JSCOVERAGE_ENDIF".
+
+```
+var covered = "this line is covered";
+//#JSCOVERAGE_IF
+if (false) {
+  // this code will never be covered
+  console.log("Why does nobody listen to me?!?!?");
+}
+//#JSCOVERAGE_ENDIF
+var alsoCovered = "this line is also covered";
+```
+
 #Example
 
 To instrument and report on a file using Mocha as your test runner:
