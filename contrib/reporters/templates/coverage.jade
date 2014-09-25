@@ -1,8 +1,12 @@
 doctype html
 html
   head
-    title Coverage
+    title CXP Mobile Test Coverage
     include script.html
+    include scripts/d3.min.html
+    include scripts/radialProgress.html
+    include charts-script.html
+    include charts-style.html
     include style.html
   body
     include menu
@@ -17,7 +21,19 @@ html
         .hits= cov.hits
         .misses= cov.misses
 
-      #files
+      #charts
+        for file, index in cov.files
+          div.outer(style='float: left')
+            div(id=index)
+              script(type='text/javascript').
+                param={
+                  'id': '#{index}',
+                  'name': '#{file.basename}',
+                  'value' : '#{file.coverage}'
+                };
+                initChart(param);
+
+      #files(style='clear:both')
         for file in cov.files
           .file
             h2(id=file.filename)= file.filename

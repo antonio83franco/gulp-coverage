@@ -1,0 +1,22 @@
+<script type="text/javascript">
+	
+function initChart(data) {
+	var radialElem = document.getElementById(data.id);
+
+console.log(radialElem.className);
+
+	if(parseInt(data.value, 10) < 50) {
+		radialElem.className = radialElem.className + ' red';
+	} else if(parseInt(data.value, 10) > 50 && parseInt(data.value, 10) < 80) {
+		radialElem.className = radialElem.className + ' orange';
+	} else {
+		radialElem.className = radialElem.className + ' green';
+	}
+    var rp1 = radialProgress(radialElem)
+            .label(data.name)
+            .diameter(150)
+            .value(data.value)
+            .render();
+}
+
+</script>

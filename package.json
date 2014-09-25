@@ -1,7 +1,7 @@
 {
-  "name": "gulp-coverage",
-  "version": "0.2.26",
-  "description": "Instrument and generate code coverage independent of test runner",
+  "name": "gulp-graphic-coverage",
+  "version": "0.0.1",
+  "description": "Instrument and generate code coverage charts independent of test runner",
   "main": "index.js",
   "scripts": {
     "test": "gulp test"
@@ -25,14 +25,15 @@
   "keywords": [
     "coverage",
     "code coverage",
+    "chart coverage",
     "mocha",
     "jasmine",
     "gulpplugin"
   ],
-  "author": "dylan@barrell.com",
+  "author": "antonio83franco@gmail.com",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dylanb/gulp-coverage.git"
+    "url": "https://github.com/antonio83franco/gulp-coverage.git"
   }
 }
